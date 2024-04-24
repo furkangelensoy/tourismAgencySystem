@@ -30,5 +30,6 @@ https://github.com/furkangelensoy/tourismAgencySystem.git
 
 </details>
 
-### İsterlere göre henüz tamamlanmamış işlemler;
+
+## İsterlere göre henüz tamamlanmamış işlemler;
 Değerlendirme formu madde: 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
