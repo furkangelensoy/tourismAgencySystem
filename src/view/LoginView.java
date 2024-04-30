@@ -6,7 +6,7 @@ import entity.User;
 
 import javax.swing.*;
 
-public class LoginView extends Layout{
+public class LoginView extends Layout {
     private JPanel container;
     private JLabel lbl_header1;
     private JLabel lbl_header2;
@@ -19,24 +19,24 @@ public class LoginView extends Layout{
     private JLabel lbl_password;
     private final UserManager userManager;
 
-    public LoginView(){
+    public LoginView() {
         this.add(container);
-        guiInitialize(400,400);
+        guiInitialize(400, 400);
         this.userManager = new UserManager();
 
         btn_login.addActionListener(e -> {
-            JTextField[] checkFieldList ={this.fld_username,this.fld_password};
-            if (Helper.isFieldListEmpty(checkFieldList)){
-                Helper.showMessage("Please fill the all fields.","Missing Data!");
-            }else{
-                User loginUser = this.userManager.findByLogin(this.fld_username.getText(),this.fld_password.getText());
-                if (loginUser == null){
-                    Helper.showMessage("Invalid username or password.","Error!");
-                }else{
-                    if (loginUser.getRole().toString().equals("ADMIN")){
+            JTextField[] checkFieldList = {this.fld_username, this.fld_password};
+            if (Helper.isFieldListEmpty(checkFieldList)) {
+                Helper.showMessage("Please fill the all fields.", "Missing Data!");
+            } else {
+                User loginUser = this.userManager.findByLogin(this.fld_username.getText(), this.fld_password.getText());
+                if (loginUser == null) {
+                    Helper.showMessage("Invalid username or password.", "Error!");
+                } else {
+                    if (loginUser.getRole().toString().equals("ADMIN")) {
                         AdminView adminView = new AdminView(loginUser);
                         dispose();
-                    }else{
+                    } else {
                         EmployeeView employeeView = new EmployeeView(loginUser);
                         dispose();
                     }

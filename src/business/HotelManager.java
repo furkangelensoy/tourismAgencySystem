@@ -6,6 +6,7 @@ import entity.Hotel;
 
 import java.util.ArrayList;
 
+// This class performs the necessary operations on the view layer using the methods in the DAO layer.
 public class HotelManager {
     private final HotelDao hotelDao;
 
@@ -22,8 +23,9 @@ public class HotelManager {
     }
 
     public boolean save(Hotel hotel){
-        if (hotel.getId() != 0){
+        if (this.getById(hotel.getId()) != null){
             Helper.showMessage("There is an another hotel with this id","Error!");
+            return false;
         }
         return this.hotelDao.save(hotel);
     }
@@ -31,6 +33,7 @@ public class HotelManager {
     public boolean update(Hotel hotel){
         if (this.getById(hotel.getId()) == null){
             Helper.showMessage("Hotel not found","Error!");
+            return false;
         }
         return this.hotelDao.update(hotel);
     }
@@ -43,6 +46,7 @@ public class HotelManager {
         return this.hotelDao.delete(hotelId);
     }
 
+    // This method returns hotel list for fill the table in view layer.
     public ArrayList<Object[]> getForTable(int size, ArrayList<Hotel> hotels){
         ArrayList<Object[]> hotelList = new ArrayList<>();
 
@@ -50,6 +54,7 @@ public class HotelManager {
             int i = 0;
             Object[] rowObject = new Object[size];
             rowObject[i++] = object.getId();
+            rowObject[i++] = object.getName();
             rowObject[i++] = object.getCity();
             rowObject[i++] = object.getState();
             rowObject[i++] = object.getAddress();

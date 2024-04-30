@@ -1,5 +1,6 @@
 package entity;
 
+// This class corresponds to the hotel table in the database.
 public class Hotel {
     private int id;
     private String name;

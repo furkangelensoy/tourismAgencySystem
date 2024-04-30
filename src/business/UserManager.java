@@ -7,6 +7,7 @@ import entity.User;
 
 import java.util.ArrayList;
 
+// This class performs the necessary operations on the view layer using the methods in the DAO layer.
 public class UserManager {
     private final UserDao userDao;
 
@@ -48,10 +49,11 @@ public class UserManager {
         return this.userDao.delete(id);
     }
 
+    // This method returns user list for fill the table in view layer.
     public ArrayList<Object[]> getForTable(int size, ArrayList<User> users) {
         ArrayList<Object[]> userList = new ArrayList<>();
 
-        for (User object : users){
+        for (User object : users) {
             int i = 0;
             Object[] rowObject = new Object[size];
 
@@ -68,11 +70,11 @@ public class UserManager {
         return userList;
     }
 
-    public ArrayList<User> searchForUser(Role role){
-        if (role != null){
+    public ArrayList<User> searchForUser(Role role) {
+        if (role != null) {
             String query = "SELECT * FROM public.user WHERE user_role = '" + role.toString() + "' ORDER BY user_id ASC";
             return this.userDao.selectByQuery(query);
-        }else{
+        } else {
             return this.userDao.findAll();
         }
 

@@ -2,13 +2,16 @@ package entity;
 
 import java.time.LocalDate;
 
+// This class corresponds to the reservation table in the database.
 public class Reservation {
     private int id;
     private int roomId;
+    private Room room;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
-    private double totalPrice;
-    private int guestCount;
+    private int totalPrice;
+    private int childCount;
+    private int adultCount;
     private String guestName;
     private String guestNationalId;
     private String guestMail;
@@ -18,14 +21,17 @@ public class Reservation {
 
     }
 
-    public Reservation(int id, int roomId, LocalDate checkInDate, LocalDate checkOutDate, double totalPrice, int guestCount,
-                       String guestName, String guestNationalId, String guestMail, String guestPhone) {
+    public Reservation(int id, int roomId, Room room, LocalDate checkInDate, LocalDate checkOutDate, int totalPrice,
+                       int childCount, int adultCount, String guestName,
+                       String guestNationalId, String guestMail, String guestPhone) {
         this.id = id;
         this.roomId = roomId;
+        this.room = room;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.totalPrice = totalPrice;
-        this.guestCount = guestCount;
+        this.childCount = childCount;
+        this.adultCount = adultCount;
         this.guestName = guestName;
         this.guestNationalId = guestNationalId;
         this.guestMail = guestMail;
@@ -48,6 +54,14 @@ public class Reservation {
         this.roomId = roomId;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public LocalDate getCheckInDate() {
         return checkInDate;
     }
@@ -64,20 +78,28 @@ public class Reservation {
         this.checkOutDate = checkOutDate;
     }
 
-    public double getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public int getGuestCount() {
-        return guestCount;
+    public int getChildCount() {
+        return childCount;
     }
 
-    public void setGuestCount(int guestCount) {
-        this.guestCount = guestCount;
+    public void setChildCount(int childCount) {
+        this.childCount = childCount;
+    }
+
+    public int getAdultCount() {
+        return adultCount;
+    }
+
+    public void setAdultCount(int adultCount) {
+        this.adultCount = adultCount;
     }
 
     public String getGuestName() {

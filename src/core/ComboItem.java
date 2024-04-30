@@ -1,5 +1,6 @@
 package core;
 
+// This class helps to add element to jcombobox and then be able to call it by key or value.
 public class ComboItem {
     private int key;
     private String value;

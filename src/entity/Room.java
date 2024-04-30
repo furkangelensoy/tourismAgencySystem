@@ -1,14 +1,18 @@
 package entity;
 
+// This class corresponds to the room table in the database.
 public class Room {
     private int id;
     private int hotelId;
+    private Hotel hotel;
     private int pensionId;
+    private Pension pension;
     private int seasonId;
+    private Season season;
     private String type;
     private int stock;
-    private double adultPrice;
-    private double childPrice;
+    private int adultPrice;
+    private int childPrice;
     private int bedCapacity;
     private int areaOfRoom;
     private boolean television;
@@ -20,12 +24,17 @@ public class Room {
     public Room() {
     }
 
-    public Room(int hotelId, int pensionId, int seasonId, String type, int stock, double adultPrice,
-                double childPrice, int bedCapacity, int areaOfRoom, boolean television, boolean minibar,
-                boolean gameConsole, boolean cashBox, boolean projection) {
+    public Room(int id, int hotelId, Hotel hotel, int pensionId, Pension pension, int seasonId, Season season,
+                String type, int stock, int adultPrice, int childPrice, int bedCapacity,
+                int areaOfRoom, boolean television, boolean minibar, boolean gameConsole,
+                boolean cashBox, boolean projection) {
+        this.id = id;
         this.hotelId = hotelId;
+        this.hotel = hotel;
         this.pensionId = pensionId;
+        this.pension = pension;
         this.seasonId = seasonId;
+        this.season = season;
         this.type = type;
         this.stock = stock;
         this.adultPrice = adultPrice;
@@ -55,6 +64,14 @@ public class Room {
         this.hotelId = hotelId;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
     public int getPensionId() {
         return pensionId;
     }
@@ -63,12 +80,28 @@ public class Room {
         this.pensionId = pensionId;
     }
 
+    public Pension getPension() {
+        return pension;
+    }
+
+    public void setPension(Pension pension) {
+        this.pension = pension;
+    }
+
     public int getSeasonId() {
         return seasonId;
     }
 
     public void setSeasonId(int seasonId) {
         this.seasonId = seasonId;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
     }
 
     public String getType() {
@@ -87,19 +120,19 @@ public class Room {
         this.stock = stock;
     }
 
-    public double getAdultPrice() {
+    public int getAdultPrice() {
         return adultPrice;
     }
 
-    public void setAdultPrice(double adultPrice) {
+    public void setAdultPrice(int adultPrice) {
         this.adultPrice = adultPrice;
     }
 
-    public double getChildPrice() {
+    public int getChildPrice() {
         return childPrice;
     }
 
-    public void setChildPrice(double childPrice) {
+    public void setChildPrice(int childPrice) {
         this.childPrice = childPrice;
     }
 

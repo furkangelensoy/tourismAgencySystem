@@ -8,7 +8,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+// This class contains common functions in the view layer and extends the jframe.
 public class Layout extends JFrame {
+
+    // This method allows pop-up windows to open in the middle of the screen.
+    // Makes it visible. Sets the window dimensions to the entered width and height.
     public void guiInitialize(int width, int height){
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setTitle("Tourism Agency System");
@@ -17,6 +21,7 @@ public class Layout extends JFrame {
         this.setVisible(true);
     }
 
+    // This method creates a table.
     public void createTable(DefaultTableModel model, JTable table, Object[] columns, ArrayList<Object[]> rows){
         model.setColumnIdentifiers(columns);
         table.setModel(model);
@@ -36,10 +41,12 @@ public class Layout extends JFrame {
         }
     }
 
+    // Returns the selected row in the table.
     public int getTableSelectedRow(JTable table, int index){
         return Integer.parseInt(table.getValueAt(table.getSelectedRow(),index).toString());
     }
 
+    // Makes rows in the table selectable.
     public void tableRowSelect(JTable table){
         table.addMouseListener(new MouseAdapter() {
             @Override

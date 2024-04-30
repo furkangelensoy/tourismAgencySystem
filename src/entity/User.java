@@ -1,5 +1,6 @@
 package entity;
 
+// This class corresponds to the user table in the database.
 public class User {
     private int id;
     private String userName;

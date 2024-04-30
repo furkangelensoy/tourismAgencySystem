@@ -1,4 +1,3 @@
-
 import view.LoginView;
 
 public class Main {

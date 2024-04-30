@@ -1,16 +1,19 @@
 package entity;
 
+// This class corresponds to the pension table in the database.
 public class Pension {
     private int id;
     private int hotelId;
+    private Hotel hotel;
     private String pension_type;
 
     public Pension() {
     }
 
-    public Pension(int id, int hotelId, String pension_type) {
+    public Pension(int id, int hotelId, Hotel hotel, String pension_type) {
         this.id = id;
         this.hotelId = hotelId;
+        this.hotel = hotel;
         this.pension_type = pension_type;
     }
 
@@ -36,5 +39,13 @@ public class Pension {
 
     public void setPension_type(String pension_type) {
         this.pension_type = pension_type;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 }

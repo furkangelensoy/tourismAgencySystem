@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+// The database connection is made here.
 public class Db {
     private Connection connection = null;
     private static Db instance = null;

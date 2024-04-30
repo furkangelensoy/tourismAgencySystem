@@ -9,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
+
+// This class contains queries of the hotel table in the database.
+// This class contains create,update,delete and other methods.
+
 public class HotelDao {
     private final Connection connection;
 
@@ -16,6 +21,9 @@ public class HotelDao {
         this.connection = Db.getInstance();
     }
 
+    // This method matches data from the database.
+    // This method returns hotel, firstly creates a empty hotel then fills with resultset
+    // values according to room hotel column values.
     public Hotel match(ResultSet resultSet) throws SQLException {
         Hotel object = new Hotel();
         object.setId(resultSet.getInt("hotel_id"));
@@ -36,6 +44,7 @@ public class HotelDao {
         return object;
     }
 
+    // This method returns all hotels as a list in the database hotel table.
     public ArrayList<Hotel> findAll(){
         ArrayList<Hotel> hotelList = new ArrayList<>();
         String query = "SELECT * FROM public.hotel ORDER BY hotel_id ASC";
@@ -50,6 +59,7 @@ public class HotelDao {
         return hotelList;
     }
 
+    // This method returns hotel according to hotel id.
     public Hotel getById(int hotelId){
         String query = "SELECT * FROM public.hotel WHERE hotel_id = ?";
         Hotel object = null;
@@ -66,18 +76,6 @@ public class HotelDao {
         return object;
     }
 
-    public ArrayList<Hotel> selectByQuery(String query){
-        ArrayList<Hotel> hotelList = new ArrayList<>();
-        try {
-            ResultSet resultSet = this.connection.createStatement().executeQuery(query);
-            while (resultSet.next()){
-                hotelList.add(this.match(resultSet));
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return hotelList;
-    }
 
     public boolean save(Hotel hotel){
         String query = "INSERT INTO public.hotel" +
@@ -122,7 +120,7 @@ public class HotelDao {
     }
 
     public boolean update(Hotel hotel){
-        String query = "UPDATE public.hotel SET" +
+        String query = "UPDATE public.hotel SET " +
                 "hotel_name = ? ," +
                 "hotel_city = ? ," +
                 "hotel_state = ? ," +
@@ -176,6 +174,5 @@ public class HotelDao {
 
         return true;
     }
-
 
 }
