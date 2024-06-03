@@ -1,7 +1,7 @@
 # Tourism Agency System
 A tourism agency system. Admin can add new user, update or delete existing users. Also admin must select role (Admin or Employee) when adding new user. 
-You can add new hotels, update or delete existing hotels.
-You can create reservations. 
+Employee can add new hotels, update or delete existing hotels.
+Employee can create reservations. 
 Reservations can be made for available rooms according to dates. Reservations made can be cancelled or updated.
 
 N layer architecture and java swing library were used in this project. This project consists of business, core, dao, entity and view packages. 
